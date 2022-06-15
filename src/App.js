@@ -1,23 +1,54 @@
-import logo from './logo.svg';
 import './App.css';
+import ThemeSwitcher from './components/ThemeSwitcher';
+import SearchBar from './components/SearchBar';
+import FilterCountries from './components/FilterCountries';
+import CountryCard from './components/CountryCard';
+import BackButton from './components/BackButton';
+import CountryDetailsInfo from './components/CountryDetailsInfo';
+import CountryDetailsFlag from './components/CountryDetailsFlag';
+import { RiGithubFill } from 'react-icons/ri';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+      <header className="header">
+        <div className="header-container container">
+          <h1 className="header__title">Where in the world?</h1>
+          <ThemeSwitcher />
+        </div>
       </header>
+
+      <main className="main container">
+
+        <header className="main-header">
+          <SearchBar />
+          <FilterCountries />
+        </header>
+
+        <section className="cards-container">
+          <CountryCard cardTitle="" cardPopulation="" cardRegion="" cardCapital="" />
+          <CountryCard cardTitle="" cardPopulation="" cardRegion="" cardCapital="" />
+          <CountryCard cardTitle="" cardPopulation="" cardRegion="" cardCapital="" />
+          <CountryCard cardTitle="" cardPopulation="" cardRegion="" cardCapital="" />
+          <CountryCard cardTitle="" cardPopulation="" cardRegion="" cardCapital="" />
+          <CountryCard cardTitle="" cardPopulation="" cardRegion="" cardCapital="" />
+        </section>
+
+        <section className="country-details">
+          <BackButton />
+          <div className="country-info-container">
+            <CountryDetailsFlag />
+            <CountryDetailsInfo />
+          </div>
+        </section>
+
+      </main>
+
+      <footer className="footer container">
+        <p className="me">By Marcos Fitzsimons <a href="https://github.com/Marcosfitzsimons" target="_blank" rel="noreferrer"><RiGithubFill className="github-icon" /></a></p>
+      </footer>
+
     </div>
   );
 }

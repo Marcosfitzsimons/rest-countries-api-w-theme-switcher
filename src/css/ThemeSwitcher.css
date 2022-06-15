@@ -1,0 +1,55 @@
+:root {
+  --bgBody: hsl(0, 0%, 98%); /* (Light Mode Background) */
+  --bgElements: #fff; /* (Dark Mode Text & Light Mode Elements) */
+  --textColor: hsl(200, 15%, 8%); /* (Light Mode Text) */
+  --bgInput: hsl(0, 0%, 52%); /* (Light Mode Input) */
+  --iconColor: hsl(0, 3%, 81%);
+  --iconActive: hsl(200, 15%, 8%);
+  --bgThemeSwitcher: rgb(255, 251, 251);
+  --textCardColor: hsl(200, 15%, 8%);
+}
+
+[data-theme="dark"] {
+  --bgBody: hsl(207, 26%, 17%); /* (Dark Mode Background) */
+  --bgElements: hsl(207, 23%, 19%); /* (Dark Mode Elements) */
+  --textColor: rgb(235, 232, 232); /* (Dark Mode Text) */
+  --bgInput: hsl(209, 23%, 22%); /* (Dark Mode Input) */
+  --iconColor: hsl(0, 3%, 81%);
+  --iconActive: #fff;
+  --bgThemeSwitcher: hsl(209, 23%, 22%);
+  --textCardColor: rgb(179, 174, 174);
+}
+
+.theme-switcher-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 8rem;
+  height: 3.5rem;
+  padding: 0.5rem;
+  border-radius: 1.5rem;
+  background-color: var(--bgThemeSwitcher);
+  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.05);
+}
+
+body {
+  background-color: var(--bgBody);
+  color: var(--textColor);
+  transition: 1s;
+}
+
+.sun-icon,
+.moon-icon {
+  font-size: 1.9rem;
+  cursor: pointer;
+  color: var(--iconColor);
+  z-index: 4444;
+  position: relative;
+  top: 0.2rem;
+}
+
+.sun-icon.active,
+.moon-icon.active {
+  color: var(--iconActive);
+}

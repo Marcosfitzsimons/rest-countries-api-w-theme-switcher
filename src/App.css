@@ -1,38 +1,190 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+:root {
+  --bgBody: hsl(0, 0%, 98%); /* (Light Mode Background) */
+  --bgElements: #fff; /* (Dark Mode Text & Light Mode Elements) */
+  --textColor: hsl(200, 15%, 8%); /* (Light Mode Text) */
+  --bgInput: hsl(0, 0%, 52%); /* (Light Mode Input) */
+  --iconColor: hsl(0, 3%, 81%);
+  --iconActive: hsl(200, 15%, 8%);
+  --bgThemeSwitcher: rgb(255, 251, 251);
+  --textCardColor: hsl(200, 15%, 8%);
+
+  --ff: "Nunito Sans", sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--ff);
+  font-size: 1.4rem;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bgBody);
+  color: var(--textColor);
+  transition: 1s;
+}
+
+/* ==============
+  Global Styles
+============== */
+
+.container {
+  width: min(90%, 120rem);
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  max-width: 75ch;
+}
+
+/* ==============
+  Utilities
+============== */
+
+.no-margin {
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.no-border {
+  border: 0;
+}
+
+.center-text {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.margin-bottom {
+  margin-bottom: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* ==============
+  Custom Styles
+============== */
+
+/* ==============
+    Header
+============== */
+
+.header {
+  background-color: var(--bgElements);
+  transition: 1s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-container {
+  display: flex;
+  height: 9rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__title {
+  font-size: 1.7rem;
+  color: var(--textColor);
+}
+
+/* ==============
+    Main
+============== */
+
+.main {
+  padding-top: 3rem;
+  transition: 1s;
+}
+
+.main-header {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 4rem;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (min-width: 950px) {
+  .main-header {
+    flex-direction: row;
+    justify-content: space-between;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* ==============
+    Footer
+============== */
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10rem;
+}
+
+.me {
+  width: 21rem;
+  padding: 1em;
+  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.05);
+  animation-name: me;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  opacity: 0.8;
+  cursor: pointer;
+  font-size: 1.55rem;
+  user-select: none;
+  font-weight: 600;
+  background-color: var(--bgElements);
+}
+
+.github-icon {
+  position: relative;
+  top: 0.4rem;
+  left: 0.3rem;
+  font-size: 1.8rem;
+  color: var(--textColor);
+}
+
+@keyframes me {
+  0% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  30% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.2;
   }
 }

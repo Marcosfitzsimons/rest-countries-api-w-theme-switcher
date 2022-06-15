@@ -1,0 +1,130 @@
+.cards-container {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.country-card {
+  width: 90%;
+  background-color: var(--bgElements);
+  border-radius: 0.5rem;
+  color: var(--textColor);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 0 4rem 0;
+  box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.4);
+  margin-bottom: 4rem;
+  height: 45rem;
+}
+
+.country-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  padding-inline: 3rem;
+  height: 16rem;
+}
+
+.country-card__title {
+  font-size: 2.3rem;
+  margin-bottom: 1rem;
+}
+
+.country-card__text {
+  font-size: 1.5rem;
+  color: var(--textCardColor);
+}
+
+.country-card__strong {
+  font-weight: 600;
+  color: var(--textColor);
+}
+
+/* ==============
+    Media queries
+============== */
+
+@media (min-width: 630px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+  .country-card {
+    max-width: 29rem;
+  }
+  .country-card-content {
+    height: 20rem;
+  }
+  .country-card__title {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 950px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    place-items: center;
+  }
+  .country-card {
+    max-width: 34rem;
+    justify-self: center;
+  }
+}
+
+/* ==============
+    Keyframes
+============== */
+
+.swing-in-top-fwd {
+  -webkit-animation: swing-in-top-fwd 1.3s
+    cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  animation: swing-in-top-fwd 1.1s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@-webkit-keyframes swing-in-top-fwd {
+  0% {
+    -webkit-transform: rotateX(-100deg);
+    transform: rotateX(-100deg);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    opacity: 1;
+  }
+}
+@keyframes swing-in-top-fwd {
+  0% {
+    -webkit-transform: rotateX(-100deg);
+    transform: rotateX(-100deg);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    opacity: 1;
+  }
+}
