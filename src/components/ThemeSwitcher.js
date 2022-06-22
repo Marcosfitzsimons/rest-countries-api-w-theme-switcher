@@ -5,14 +5,24 @@ import { RiMoonLine } from "react-icons/ri";
 
 export function themeSwitcher(props) {
 
+
+
     const setDark = () => {
         localStorage.setItem("theme", "dark");
         document.documentElement.setAttribute("data-theme", "dark");
+        const iconMoon = document.querySelector('.moon-icon');
+        const iconSun = document.querySelector('.sun-icon');
+        iconMoon.classList.toggle('active');
+        iconSun.classList.remove('active');
     };
 
     const setLight = () => {
         localStorage.setItem("theme", "light");
         document.documentElement.setAttribute("data-theme", "light");
+        const iconMoon = document.querySelector('.moon-icon');
+        const iconSun = document.querySelector('.sun-icon');
+        iconSun.classList.toggle('active');
+        iconMoon.classList.remove('active');
     };
 
     const storedTheme = localStorage.getItem("theme");

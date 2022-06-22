@@ -7,8 +7,42 @@ import BackButton from './components/BackButton';
 import CountryDetailsInfo from './components/CountryDetailsInfo';
 import CountryDetailsFlag from './components/CountryDetailsFlag';
 import { RiGithubFill } from 'react-icons/ri';
+import { useState, useEffect } from 'react';
+
 
 function App() {
+
+  // Display loading animation
+  const displayLoading = () => {
+    const loader = document.querySelector("#loading");
+    loader.classList.add("display");
+    setTimeout(() => {
+      loader.classList.remove("display");
+    }, 5000)
+  }
+
+  const hideLoading = () => {
+    const loader = document.querySelector("#loading");
+    loader.classList.remove("display");
+  }
+
+  // Fetch API
+
+  const url = 'https://restcountries.com/v3.1/all';
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    const fetchApi = async () => {
+      displayLoading();
+      const response = await fetch(url);
+      const countries = await response.json();
+      hideLoading()
+      setCountries(countries);
+    }
+    fetchApi();
+  }, []);
+
+
   return (
     <div className="App">
 
@@ -25,14 +59,9 @@ function App() {
           <SearchBar />
           <FilterCountries />
         </header>
-
         <section className="cards-container">
-          <CountryCard cardTitle="" cardPopulation="" cardRegion="" cardCapital="" />
-          <CountryCard cardTitle="" cardPopulation="" cardRegion="" cardCapital="" />
-          <CountryCard cardTitle="" cardPopulation="" cardRegion="" cardCapital="" />
-          <CountryCard cardTitle="" cardPopulation="" cardRegion="" cardCapital="" />
-          <CountryCard cardTitle="" cardPopulation="" cardRegion="" cardCapital="" />
-          <CountryCard cardTitle="" cardPopulation="" cardRegion="" cardCapital="" />
+          <div id="loading"></div>
+          <CountryCard countries={countries} />
         </section>
 
         <section className="country-details">

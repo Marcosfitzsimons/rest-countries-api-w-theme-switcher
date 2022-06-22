@@ -188,3 +188,27 @@ p {
     opacity: 0.2;
   }
 }
+
+#loading {
+  width: 4rem;
+  height: 4rem;
+  border: 5px solid var(--textColor);
+  border-top: 6px solid var(--bgElements);
+  border-radius: 100%;
+  margin: auto;
+  display: none;
+  animation: spin 1s infinite linear;
+}
+
+#loading.display {
+  display: block;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
