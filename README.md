@@ -8,7 +8,7 @@ I'm learned many new javascript & react concepts such as:
 <br>
 -Practice UseState Hook.
 <br>
--Iterate items from an array with .map method.
+-Iterate items from an array with .map and .filter methods
 <br>
 
 
