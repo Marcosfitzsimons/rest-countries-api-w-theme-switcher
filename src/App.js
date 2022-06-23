@@ -12,6 +12,25 @@ import { useState, useEffect } from 'react';
 
 function App() {
 
+  const [countries, setCountries] = useState([]);
+  const [searchFiltered, setSearchFiltered] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
+
+  // Fetch API
+
+  const url = 'https://restcountries.com/v3.1/all';
+
+  useEffect(() => {
+    const fetchApi = async () => {
+      displayLoading();
+      const response = await fetch(url);
+      const countries = await response.json();
+      hideLoading()
+      setCountries(countries);
+    }
+    fetchApi();
+  }, []);
+
   // backHome btn
 
   const backHome = () => {
@@ -27,6 +46,7 @@ function App() {
   }
 
   // Display loading animation
+
   const displayLoading = () => {
     const loader = document.querySelector("#loading");
     loader.classList.add("display");
@@ -40,22 +60,20 @@ function App() {
     loader.classList.remove("display");
   }
 
-  // Fetch API
+  // Search Countries
 
-  const url = 'https://restcountries.com/v3.1/all';
-  const [countries, setCountries] = useState([]);
+  const searchCountries = (searchValue) => {
+    setSearchInput(searchValue);
 
-  useEffect(() => {
-    const fetchApi = async () => {
-      displayLoading();
-      const response = await fetch(url);
-      const countries = await response.json();
-      hideLoading()
-      setCountries(countries);
+    if (searchInput) {
+      const filteredCountries = countries.filter((country) => (
+        Object.values(country).join("").toLowerCase().includes(searchValue.toLowerCase())
+      ))
+      setSearchFiltered(filteredCountries);
+    } else {
+      setSearchFiltered(countries);
     }
-    fetchApi();
-  }, []);
-
+  }
 
   return (
     <div className="App">
@@ -70,12 +88,12 @@ function App() {
       <main className="main container">
 
         <header className="main-header">
-          <SearchBar />
+          <SearchBar searchCountries={searchCountries} searchInput={searchInput} />
           <FilterCountries />
         </header>
         <section className="cards-container">
           <div id="loading"></div>
-          <CountryCard countries={countries} />
+          <CountryCard countries={countries} searchFiltered={searchFiltered} searchInput={searchInput} />
         </section>
 
         <section className="country-details">
