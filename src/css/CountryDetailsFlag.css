@@ -17,3 +17,7 @@
     height: 39.5rem;
   }
 }
+
+.flex {
+  display: flex;
+}

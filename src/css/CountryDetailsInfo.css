@@ -2,6 +2,7 @@
   display: none;
   flex-direction: column;
   gap: 7rem;
+  transition: 0.5s;
 }
 
 .country-info-container {

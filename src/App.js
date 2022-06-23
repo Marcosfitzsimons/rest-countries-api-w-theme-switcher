@@ -12,6 +12,20 @@ import { useState, useEffect } from 'react';
 
 function App() {
 
+  // backHome btn
+
+  const backHome = () => {
+
+    const cards = document.querySelector(".cards-grid");
+    cards.classList.remove("hidden");
+
+    const details = document.querySelector(".country-details");
+    details.classList.add("hidden");
+
+    const filter = document.querySelector(".filter-container");
+    filter.classList.remove("hidden");
+  }
+
   // Display loading animation
   const displayLoading = () => {
     const loader = document.querySelector("#loading");
@@ -65,7 +79,7 @@ function App() {
         </section>
 
         <section className="country-details">
-          <BackButton />
+          <BackButton back={backHome} />
           <div className="country-info-container">
             <CountryDetailsFlag />
             <CountryDetailsInfo />

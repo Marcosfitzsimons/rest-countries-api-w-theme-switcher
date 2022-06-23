@@ -98,6 +98,7 @@ p {
 .header {
   background-color: var(--bgElements);
   transition: 1s;
+  box-shadow: 0px 1px 6px 3px rgba(0, 0, 0, 0.1);
 }
 
 .header-container {
@@ -211,4 +212,8 @@ p {
   to {
     transform: rotate(360deg);
   }
+}
+
+.hidden {
+  display: none;
 }
