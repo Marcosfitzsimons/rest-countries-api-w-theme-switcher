@@ -114,3 +114,7 @@
     font-size: 1.8rem;
   }
 }
+
+.country-details.hidden {
+  display: none;
+}

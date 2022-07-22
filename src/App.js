@@ -91,16 +91,17 @@ function App() {
           <SearchBar searchCountries={searchCountries} searchInput={searchInput} />
           <FilterCountries />
         </header>
+
         <section className="cards-container">
           <div id="loading"></div>
           <CountryCard countries={countries} searchFiltered={searchFiltered} searchInput={searchInput} />
         </section>
 
-        <section className="country-details">
+        <section className="country-details hidden">
           <BackButton back={backHome} />
           <div className="country-info-container">
             <CountryDetailsFlag />
-            <CountryDetailsInfo />
+            <CountryDetailsInfo path=":/capital" />
           </div>
         </section>
 
