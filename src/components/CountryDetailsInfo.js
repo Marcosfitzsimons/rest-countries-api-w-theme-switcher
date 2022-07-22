@@ -4,7 +4,7 @@ import BorderCountry from './BorderCountry';
 // import { useState, useEffect } from 'react';
 // import { useParams } from "react-router-dom"
 
-function CountryDetailsInfo() {
+function CountryDetailsInfo({ countries }) {
 
     /*
     const [country, setCountry] = useState();

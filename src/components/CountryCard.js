@@ -16,10 +16,12 @@ function CountryCard({ countries = [], searchFiltered, searchInput }) {
 
         const filter = document.querySelector(".filter-container");
         filter.classList.add("hidden");
+
+
     }
 
     return (
-        <div className="cards-grid">
+        <>
             {
 
                 searchInput.length > 0 ? searchFiltered.map((country, index) => (
@@ -50,7 +52,7 @@ function CountryCard({ countries = [], searchFiltered, searchInput }) {
                     </article>
                 ))
             }
-        </div>
+        </>
     )
 }
 

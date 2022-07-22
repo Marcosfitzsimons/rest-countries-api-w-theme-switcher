@@ -1,11 +1,9 @@
 import './App.css';
-import ThemeSwitcher from './components/ThemeSwitcher';
+import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import FilterCountries from './components/FilterCountries';
 import CountryCard from './components/CountryCard';
-import BackButton from './components/BackButton';
-import CountryDetailsInfo from './components/CountryDetailsInfo';
-import CountryDetailsFlag from './components/CountryDetailsFlag';
+import CountryDetails from './components/CountryDetails';
 import { RiGithubFill } from 'react-icons/ri';
 import { useState, useEffect } from 'react';
 
@@ -78,12 +76,7 @@ function App() {
   return (
     <div className="App">
 
-      <header className="header">
-        <div className="header-container container">
-          <h1 className="header__title">Where in the world?</h1>
-          <ThemeSwitcher />
-        </div>
-      </header>
+      <Header />
 
       <main className="main container">
 
@@ -94,16 +87,12 @@ function App() {
 
         <section className="cards-container">
           <div id="loading"></div>
-          <CountryCard countries={countries} searchFiltered={searchFiltered} searchInput={searchInput} />
-        </section>
-
-        <section className="country-details hidden">
-          <BackButton back={backHome} />
-          <div className="country-info-container">
-            <CountryDetailsFlag />
-            <CountryDetailsInfo path=":/capital" />
+          <div className="cards-grid">
+            <CountryCard countries={countries} searchFiltered={searchFiltered} searchInput={searchInput} />
           </div>
         </section>
+
+        <CountryDetails backHome={backHome} countries={countries} />
 
       </main>
 
